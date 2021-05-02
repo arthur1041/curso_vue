@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +8,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
 </head>
-
 <body>
     <div id="app">
         <p>{{ titulo }}</p>
         <p>{{ saudacao() }}</p>
+        <a v-bind:href="link">Google</a>
     </div>
 
     <script>
@@ -21,9 +20,10 @@
             el: "#app",
             data: {
                 titulo: 'Usando VueJS!',
+                link: 'http://google.com/'
             },
             methods: {
-                saudacao: function () {
+                saudacao: function(){
                     console.log(this);
                     return this.titulo;
                 }
@@ -32,5 +32,4 @@
         });
     </script>
 </body>
-
 </html>
