@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <p>{{ titulo }}</p>
+        <!-- v-once faz interpolar uma unica vez -->
+        <p v-once >{{ titulo }}</p>
         <p>{{ saudacao() }}</p>
         <a v-bind:href="link">Google</a>
     </div>
