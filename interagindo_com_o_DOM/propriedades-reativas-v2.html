@@ -10,17 +10,23 @@
 <body>
 
     <div id="app">
-        <p>{{ titulo }}</p>
-        <input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value">
-        <hr>
-        <input type="text" v-model="titulo">
+        <button v-on:click="aumentar">Aumentar</button>
+        <p>Contador: {{ contador }}</p>
+        <p>Resultado: {{ resultado }}</p>
     </div>
     
     <script>
         new Vue({
             el: "#app",
             data: {
-                titulo: "Usando VueJs!"
+                contador: 0,
+                resultado: ''
+            },
+            methods: {
+                aumentar: function(){
+                    this.contador++;
+                    this.contador = this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
+                }
             }
         });
     </script>
