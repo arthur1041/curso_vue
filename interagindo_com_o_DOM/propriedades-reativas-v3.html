@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click="aumentar">Aumentar</button><button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{ contador }}</p>
+        <p>Resultado: {{ getResultado }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                contador: 0,
+            },
+            computed: {
+                getResultado: function () {
+                    return this.resultado = this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
+                }
+            },
+            watch: {
+                contador: function (_new, old) {
+                    const vueInstance = this;
+                    setTimeout(function (){
+                        vueInstance.contador = 0;
+                    }, 2000);
+                }
+            },
+            methods: {
+                aumentar: function () {
+                    this.contador++;
+                },
+                diminuir: function () {
+                    this.contador--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
