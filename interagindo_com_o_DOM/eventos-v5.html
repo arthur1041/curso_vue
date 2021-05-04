@@ -13,45 +13,17 @@
 <body>
     <div id="app">
         <p>{{ contador }}</p>
-        <button v-on:click="somar(5, $event)">Somar 1</button>
-        <p v-on:mousemove="atualizarXY">Mouse: {{ x }} e {{ y }} <span v-on:mousemove.stop="">PARAR AQUI!!!</span></p>
-        <!-- v-on:click.prevent="" -->
-        <a v-on:click.prevent="test" href="http://google.com/">Google</a>
-        <hr>
-        <!-- alt + enter -->
-        <input type="text" v-on:keyup.enter.alt="exibirAlerta">
-        <hr>
-        <!-- ctrl + s -->
-        <textarea v-on:keyup.ctrl.s="exibirAlerta" name="test" id="test" cols="30" rows="10"></textarea>
-    </div>
+        <button v-on:click="somar">Somar 1</button>
+           </div>
     <script>
         new Vue({
             el: "#app",
             data: {
                 contador: 1,
-                x: 0,
-                y: 0
             },
             methods: {
-                somar: function (passo, e) {
-                    console.log(e);
-                    this.contador += passo;
-                },
-                atualizarXY: function (event) {
-                    this.x = event.clientX,
-                        this.y = event.clientY
-                },
-                exibirAlerta: function(){
-                    alert("alerta");
-                },
-                //    parar: function (event) {
-                //        event.stopPropagation();
-                //    },
-                // prevent: function(event){
-                //     event.preventDefault();
-                // }
-                test: function () {
-                    console.log("Teste")
+                somar: function () {
+                    this.contador++;
                 }
             },
 
