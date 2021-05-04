@@ -16,7 +16,7 @@
         <button v-on:click="somar(5, $event)">Somar 1</button>
         <p v-on:mousemove="atualizarXY">Mouse: {{ x }} e {{ y }} <span v-on:mousemove.stop="">PARAR AQUI!!!</span></p>
         <!-- v-on:click.prevent="" -->
-    <a v-on:click.prevent="" href="http://google.com/">Google</a>
+    <a v-on:click.prevent="test" href="http://google.com/">Google</a>
     </div>
     <script>
         new Vue({
@@ -41,6 +41,9 @@
                 // prevent: function(event){
                 //     event.preventDefault();
                 // }
+                test: function(){
+                    console.log("Teste")
+                }
             },
 
         });
