@@ -13,13 +13,14 @@
 <body>
     <div id="app">
         <p>{{ contador }}</p>
+        <p>{{ contador % 2 == 0 ? "par" : "impar"  }}</p>
         <button v-on:click="somar">Somar 1</button>
            </div>
     <script>
         new Vue({
             el: "#app",
             data: {
-                contador: 1,
+                contador: 0,
             },
             methods: {
                 somar: function () {
