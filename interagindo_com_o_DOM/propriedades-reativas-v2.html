@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,36 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
 </head>
+
 <body>
 
     <div id="app">
-        <button v-on:click="aumentar">Aumentar</button><button v-on:click="diminuir">Aumentar</button>
+        <button v-on:click="aumentar">Aumentar</button><button v-on:click="diminuir">Diminuir</button>
         <p>Contador: {{ contador }}</p>
-        <p>Resultado: {{ getResultado() }}</p>
+        <p>Resultado: {{ getResultado }}</p>
     </div>
-    
+
     <script>
         new Vue({
             el: "#app",
             data: {
                 contador: 0,
             },
+            computed: {
+                getResultado: function () {
+                    return this.resultado = this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
+                }
+            },
             methods: {
-                aumentar: function(){
+                aumentar: function () {
                     this.contador++;
                 },
-                diminuir: function(){
+                diminuir: function () {
                     this.contador--;
-                },
-                getResultado: function (params) {
-                    return this.resultado = this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
                 }
             }
         });
     </script>
 </body>
+
 </html>
