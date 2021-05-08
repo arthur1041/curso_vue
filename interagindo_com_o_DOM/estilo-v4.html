@@ -33,6 +33,7 @@
         .c3 {
             background-color: blue;
         }
+
         .girar {
             transform: rotate(45deg);
         }
@@ -44,35 +45,30 @@
 
     <div id="app">
         <div class="caixas">
-            <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+            <div class="demo" :style="meuEstilo"></div>
             <div class="demo"></div>
-            <div class="demo" :class="[classeCss, {'girar': aplicarGirar}]"></div>
+            <div class="demo"></div>
         </div>
         <hr>
-        <input type="text" v-model="classeCss">
+        <input type="text" v-model="cor">
+        <p>{{ cor }}</p>
     </div>
 
     <script>
         new Vue({
             el: "#app",
             data: {
-                aplicarC1: false,
-                classeCss: 'cor-1',
-                aplicarGirar: true
+                cor: 'red',
+                largura: 50
             },
             computed: {
-                estilo1: function () {
+                meuEstilo() {
                     return {
-                        'cor-1': this.aplicarC1,
-                        c2: !this.aplicarC1
+                        'background-color': this.cor,
+                        width: this.largura+"px"
                     }
-                },
-            },
-            watch: {
-                classeCss: function(){
-                    this.aplicarGirar = !this.aplicarGirar;
                 }
-            }
+            },
         });
     </script>
 </body>
