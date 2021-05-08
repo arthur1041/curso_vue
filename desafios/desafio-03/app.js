@@ -13,11 +13,8 @@ new Vue({
     },
     computed: {
         resultado: function () {
-            if (this.valor !== 37) {
-                return "Valor Diferente";
-            } else {
-                return "Valor Igual";
-            }
+            return this.valor !== 37 ? "Valor Diferente" : "Valor Igual";
+        
         }
     }
 });
