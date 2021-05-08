@@ -1,22 +1,23 @@
 new Vue({
     el: '#desafio',
     data: {
-        valor: 0,
-        resultado: "Valor Diferente"
+        valor: 0
     },
     watch: {
-        valor: function(novo, antigo){
-            if(this.valor !== 37){
-                this.resultado = "Valor Diferente";
-            } else {
-                this.resultado = "Valor Igual";
-            }
-        },
-        resultado: function(novo, antigo){
+        resultado: function (novo, antigo) {
             const vueInstance = this;
             setTimeout(() => {
                 this.valor = 0;
             }, 5000);
+        },
+    },
+    computed: {
+        resultado: function () {
+            if (this.valor !== 37) {
+                return "Valor Diferente";
+            } else {
+                return "Valor Igual";
+            }
         }
     }
 });
