@@ -14,7 +14,6 @@ new Vue({
     computed: {
         resultado: function () {
             return this.valor !== 37 ? "Valor Diferente" : "Valor Igual";
-        
         }
     }
 });
