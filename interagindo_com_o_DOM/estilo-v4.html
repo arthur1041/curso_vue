@@ -45,12 +45,15 @@
 
     <div id="app">
         <div class="caixas">
-            <div class="demo" :style="meuEstilo"></div>
+            <div class="demo" :style="[meuEstilo, {transition: 'all .5s ease-in-out'}]"></div>
             <div class="demo"></div>
             <div class="demo"></div>
         </div>
         <hr>
         <input type="text" v-model="cor">
+        <br>
+        <br>
+        <input type="number" v-model="largura">
         <p>{{ cor }}</p>
     </div>
 
@@ -59,7 +62,7 @@
             el: "#app",
             data: {
                 cor: 'red',
-                largura: 50
+                largura: 100
             },
             computed: {
                 meuEstilo() {
